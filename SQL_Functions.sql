@@ -1,0 +1,111 @@
+-- Case Conversion Function
+SELECT LOWER('darshan deore') "LOWER", UPPER('darshan deore') "UPPER", INITCAP('darshan deore') "INITCAP"
+FROM dual;
+
+SELECT employee_id,lower(LAST_NAME), last_name,DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE LOWER(LAST_NAME)= 'higgins';
+
+SELECT LAST_NAME, UPPER(concat(substr(LAST_NAME,1,8), '_US')) "EDITED NAME",DEPARTMENT_ID
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 60;
+
+-- Character Manipulation Function
+
+-- CONCAT
+SELECT CONCAT(CONCAT(last_name, ' is a '),job_id) "Employee-Job"
+FROM EMPLOYEES
+FETCH first 15 ROWS ONLY;
+
+SELECT CONCAT(CONCAT(last_name, '''s job Category is '), JOB_ID) AS "Job"
+FROM EMPLOYEES
+WHERE SUBSTR(JOB_ID, -3) = 'REP';
+
+SELECT EMPLOYEE_ID, CONCAT(first_name,last_name) "NAME",
+LENGTH(CONCAT(first_name,last_name)),
+INSTR(LAST_NAME, 'a') "contains 'a' ?"
+FROM EMPLOYEES
+WHERE SUBSTR(last_name,-1) = 'n';
+
+--SUBSTR
+SELECT last_name
+FROM EMPLOYEES
+WHERE SUBSTR(LAST_NAME, 1,1) = 'T';
+
+SELECT last_name
+FROM EMPLOYEES
+WHERE SUBSTR(LAST_NAME, -1) = 'n';
+
+SELECT last_name
+FROM EMPLOYEES
+WHERE SUBSTR(LAST_NAME, 2,1) = 'a';
+
+-- LENGTH
+SELECT LENGTH('DarshanDeore')
+FROM dual ;
+
+-- INSTR
+SELECT INSTR('HelloWorld', 'W')
+FROM dual ;
+
+-- LPAD
+SELECT LPAD(salary, 10 , '*')
+FROM EMPLOYEES;
+
+-- RPAD
+SELECT RPAD(salary, 10 , '*')
+FROM EMPLOYEES;
+
+-- TRIM
+SELECT TRIM('H' FROM 'HelloWorld')
+FROM dual;
+
+--REPLACE
+SELECT REPLACE('JACK AND JUE','J','BL') "replace"
+FROM dual;
+
+--NUMERIC FUNCTIONS
+
+--ROUND
+SELECT ROUND(45.926, 2)
+FROM dual; 
+
+SELECT ROUND(45.926, 0)
+FROM dual; 
+
+SELECT ROUND(45.926)
+FROM dual; 
+
+SELECT ROUND(45.926, 1)
+FROM dual; 
+
+SELECT ROUND(45.926, -1)
+FROM dual; 
+
+SELECT ROUND(545.926, -2)
+FROM dual; 
+
+SELECT ROUND(945.926, -3)
+FROM dual; 
+
+-- TRUNC
+SELECT TRUNC(45.926,2) 
+FROM dual; 
+
+--CEIL
+SELECT CEIL(2.83)
+FROM dual; 
+
+SELECT CEIL(3.12)
+FROM dual; 
+
+--FLOOR 
+SELECT FLOOR(3.12)
+FROM dual; 
+
+SELECT FLOOR(2.83)
+FROM dual; 
+
+--MOD
+SELECT MOD (1600,300)
+FROM dual;
