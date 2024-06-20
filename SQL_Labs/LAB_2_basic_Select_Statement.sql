@@ -20,15 +20,3 @@ from EMPLOYEES;
 select employee_id " Employee", concat(concat(last_name,' , '),job_id) "Title"
 from EMPLOYEES ; 
 
-
-select concat() "Employees details"
-from EMPLOYEES; 
-
-
- 
-
-
-
-
-
-select *from JOBS;

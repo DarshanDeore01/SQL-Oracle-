@@ -25,3 +25,4 @@ UNDEFINE Column
 show verify
 SET VERIFY on 
 show verify
+
